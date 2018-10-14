@@ -32,7 +32,7 @@ define(function(require, exports, module) {
                 action: function() {
                     if (command.indexOf('Append') === 0) {
                         AppendLock++;
-                        minder.execCommand(command, '分支主题');
+                        minder.execCommand(command, '请输入名字');
 
                         // provide in input runtime
                         function afterAppend () {

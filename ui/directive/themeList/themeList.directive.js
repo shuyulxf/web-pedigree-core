@@ -6,7 +6,6 @@ angular.module('kityminderEditor')
             replace: true,
 			link: function($scope) {
 				var themeList = kityminder.Minder.getThemeList();
-
 				//$scope.themeList = themeList;
 
 				$scope.getThemeThumbStyle = function (theme) {
@@ -28,11 +27,11 @@ angular.module('kityminderEditor')
 
 				// 维护 theme key 列表以保证列表美观（不按字母顺序排序）
 				$scope.themeKeyList = [
-					'fresh-red',
-					'fresh-red-compat'
+					'fresh-red-compat',
+					'fresh-soil-compat'
 				];
 
-				minder.execCommand('theme', 'fresh-red');
+				minder.execCommand('theme', 'fresh-red-compat');
 			}
 		}
 	});

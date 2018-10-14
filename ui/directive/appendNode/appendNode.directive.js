@@ -13,7 +13,7 @@ angular.module('kityminderEditor')
                 commandBinder.bind(minder, 'appendchildnode', $scope)
 
                 $scope.execCommand = function(command) {
-                    minder.execCommand(command, '分支主题');
+                    minder.execCommand(command, '请输入名字');
                     editText();
                 };
 

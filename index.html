@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>KityMinder Editor - Powered By FEX</title>
+    <title>族谱匠</title>
 
 	<link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
 
@@ -20,11 +20,12 @@
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
+            height: 100%; 
             overflow: hidden;
         }
         h1.editor-title {
             background: #393F4F;
+
             color: white;
             margin: 0;
             height: 40px;
@@ -37,7 +38,7 @@
     </style>
 </head>
 <body ng-app="kityminderDemo" ng-controller="MainController">
-    <h1 class="editor-title">KityMinder Editor - Powered By FEX</h1>
+    <h1 class="editor-title">未登陆用户</h1>
     <kityminder-editor on-init="initEditor(editor, minder)"></kityminder-editor>
 </body>
 
@@ -103,7 +104,6 @@
 <script src="ui/directive/navigator/navigator.directive.js"></script>
 <script src="ui/directive/searchBox/searchBox.directive.js"></script>
 <script src="ui/directive/searchBtn/searchBtn.directive.js"></script>
-
 
 <script>
 	angular.module('kityminderDemo', ['kityminderEditor'])

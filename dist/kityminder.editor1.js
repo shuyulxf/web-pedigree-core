@@ -1,6 +1,6 @@
 /*!
  * ====================================================
- * kityminder-editor - v1.0.64 - 2018-08-31
+ * kityminder-editor - v1.0.64 - 2018-10-14
  * https://github.com/fex-team/kityminder-editor
  * GitHub: https://github.com/fex-team/kityminder-editor 
  * Copyright (c) 2018 ; Licensed 
@@ -1396,7 +1396,7 @@ _p[14] = {
             minder.renderTo(this.selector);
             minder.setTheme(null);
             minder.select(minder.getRoot(), true);
-            minder.execCommand("text", "中心主题");
+            minder.execCommand("text", "请输入名字");
             // 导出给其它 Runtime 使用
             this.minder = minder;
         }
@@ -1427,7 +1427,7 @@ _p[15] = {
                     action: function() {
                         if (command.indexOf("Append") === 0) {
                             AppendLock++;
-                            minder.execCommand(command, "分支主题");
+                            minder.execCommand(command, "请输入名字");
                             // provide in input runtime
                             function afterAppend() {
                                 if (!--AppendLock) {
@@ -3274,7 +3274,7 @@ angular.module('kityminderEditor')
                 commandBinder.bind(minder, 'appendchildnode', $scope)
 
                 $scope.execCommand = function(command) {
-                    minder.execCommand(command, '分支主题');
+                    minder.execCommand(command, '请输入名字');
                     editText();
                 };
 
@@ -4503,7 +4503,6 @@ angular.module('kityminderEditor')
             replace: true,
 			link: function($scope) {
 				var themeList = kityminder.Minder.getThemeList();
-
 				//$scope.themeList = themeList;
 
 				$scope.getThemeThumbStyle = function (theme) {
@@ -4525,11 +4524,11 @@ angular.module('kityminderEditor')
 
 				// 维护 theme key 列表以保证列表美观（不按字母顺序排序）
 				$scope.themeKeyList = [
-					'fresh-red',
-					'fresh-red-compat'
+					'fresh-red-compat',
+					'fresh-soil-compat'
 				];
 
-				minder.execCommand('theme', 'fresh-red');
+				minder.execCommand('theme', 'fresh-red-compat');
 			}
 		}
 	});
