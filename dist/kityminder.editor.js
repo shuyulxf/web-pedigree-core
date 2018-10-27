@@ -2153,11 +2153,6 @@ angular.module('kityminderEditor').run(['$templateCache', function($templateCach
   );
 
 
-  $templateCache.put('ui/directive/pedigreeEditor/pedigreeEditor.html',
-    "<div class=\"minder-editor-container\"><div class=\"top-tab\" top-tab=\"minder\" editor=\"editor\" ng-if=\"minder\"></div><div search-box minder=\"minder\" ng-if=\"minder\"></div><div class=\"minder-editor\"></div><div class=\"km-note\" note-editor minder=\"minder\" ng-if=\"minder\"></div><div class=\"note-previewer\" note-previewer ng-if=\"minder\"></div><div class=\"navigator\" navigator minder=\"minder\" ng-if=\"minder\"></div></div>"
-  );
-
-
   $templateCache.put('ui/directive/priorityEditor/priorityEditor.html',
     "<ul class=\"km-priority tool-group\" ng-disabled=\"commandDisabled\"><li class=\"km-priority-item tool-group-item\" ng-repeat=\"p in priorities\" ng-click=\"commandDisabled || minder.execCommand('priority', p)\" ng-class=\"{ active: commandValue == p }\" title=\"{{ getPriorityTitle(p) }}\"><div class=\"km-priority-icon tool-group-icon priority-{{p}}\"></div></li></ul>"
   );
@@ -4065,77 +4060,6 @@ angular.module('kityminderEditor')
             }
         }
     });
-angular.module('pedigreeEditor')
-	.directive('pedigreeEditor', ['config', 'minder.service', 'revokeDialog', function(config, minderService, revokeDialog) {
-		return {
-			restrict: 'EA',
-			templateUrl: 'ui/directive/pedigreeEditor/pedigreeEditor.html',
-			replace: true,
-			scope: {
-				onInit: '&'
-			},
-			link: function(scope, element, attributes) {
-
-				var $minderEditor = element.children('.minder-editor')[0];
-
-				function onInit(editor, minder) {
-					scope.onInit({
-						editor: editor,
-						minder: minder
-					});
-
-					minderService.executeCallback();
-				}
-
-				if (typeof(seajs) != 'undefined') {
-					/* global seajs */
-					seajs.config({
-						base: './src'
-					});
-
-					define('demo', function(require) {
-						var Editor = require('editor');
-
-						var editor = window.editor = new Editor($minderEditor);
-
-						if (window.localStorage.__dev_minder_content) {
-							editor.minder.importJson(JSON.parse(window.localStorage.__dev_minder_content));
-						}
-
-						editor.minder.on('contentchange', function() {
-							window.localStorage.__dev_minder_content = JSON.stringify(editor.minder.exportJson());
-						});
-
-						window.minder = window.km = editor.minder;
-
-						scope.editor = editor;
-						scope.minder = minder;
-                        scope.config = config.get();
-
-                        //scope.minder.setDefaultOptions(scope.config);
-						scope.$apply();
-
-						onInit(editor, minder);
-					});
-
-					seajs.use('demo');
-
-				} else if (window.kityminder && window.kityminder.Editor) {
-					var editor = new kityminder.Editor($minderEditor);
-
-					window.editor = scope.editor = editor;
-					window.minder = scope.minder = editor.minder;
-
-                    scope.config = config.get();
-
-                    //scope.minder.setDefaultOptions(config.getConfig());
-
-                    onInit(editor, editor.minder);
-                }
-
-			}
-		}
-	}]);
 angular.module('kityminderEditor')
 
     .directive('priorityEditor', ['commandBinder', function(commandBinder) {

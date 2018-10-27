@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="../bower_components/color-picker/dist/color-picker.min.css" />
 	<!-- endbower -->
 
-	<link rel="stylesheet" href="kityminder.editor.min.css">
+	<link rel="stylesheet" href="client.editor.min.css">
 
 	<style>
 		html, body {
@@ -43,10 +43,10 @@
 		}
 	</style>
 </head>
-<body ng-app="kityminderDemo" ng-controller="MainController">
-<h1 class="editor-title">KityMinder Editor - Powered By FEX</h1>
-<kityminder-editor on-init="initEditor(editor, minder)"></kityminder-editor>
-</body>
+	<body ng-app="pedigreeCore" ng-controller="MainController">
+		<h1 class="editor-title">未登陆用户</h1>
+		<kityminder-editor on-init="initEditor(editor, minder)"></kityminder-editor>
+	</body>
 
 <!-- bower:js -->
 <script src="../bower_components/jquery/dist/jquery.js"></script>
@@ -70,21 +70,20 @@
 <script src="../bower_components/color-picker/dist/color-picker.min.js"></script>
 <!-- endbower -->
 
-<script src="kityminder.editor.min.js"></script>
+<script src="client.editor.min.js"></script>
 
 
 <script>
-	angular.module('kityminderDemo', ['kityminderEditor'])
-			.config(function (configProvider) {
-				configProvider.set('imageUpload', '../server/imageUpload.php');
-			})
-			.controller('MainController', function($scope) {
-				$scope.initEditor = function(editor, minder) {
-					window.editor = editor;
-					window.minder = minder;
-				};
-			});
-
+	angular.module('pedigreeCore', ['kityminderEditor'])
+		.config(function (configProvider) {
+			configProvider.set('imageUpload', '../server/imageUpload.php');
+		})
+		.controller('MainController', function($scope) {
+			$scope.initEditor = function(editor, minder) {
+				window.editor = editor;
+				window.minder = minder;
+			};
+		});
 </script>
 
 </html>

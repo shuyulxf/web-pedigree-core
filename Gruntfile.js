@@ -108,7 +108,7 @@ module.exports = function(grunt) {
             minimize: {
                 files: [{
 	                src: 'dist/kityminder.editor.js',
-	                dest: 'dist/kityminder.editor.min.js'
+	                dest: 'dist/client.editor.min.js'
                 }]
             }
         },
@@ -130,7 +130,7 @@ module.exports = function(grunt) {
 	    cssmin: {
 	        dist: {
 	            files: {
-	                'dist/kityminder.editor.min.css': 'dist/kityminder.editor.css'
+	                'dist/client.editor.min.css': 'dist/kityminder.editor.css'
 	         }
 	       }
 	    },
