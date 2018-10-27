@@ -37,7 +37,7 @@
         }
     </style>
 </head>
-<body ng-app="kityminderDemo" ng-controller="MainController">
+<body ng-app="pedigreeCore" ng-controller="MainController">
     <h1 class="editor-title">未登陆用户</h1>
     <kityminder-editor on-init="initEditor(editor, minder)"></kityminder-editor>
 </body>
@@ -106,7 +106,7 @@
 <script src="ui/directive/searchBtn/searchBtn.directive.js"></script>
 
 <script>
-	angular.module('kityminderDemo', ['kityminderEditor'])
+	angular.module('pedigreeCore', ['kityminderEditor'])
 			.controller('MainController', function($scope) {
 				$scope.initEditor = function(editor, minder) {
 					window.editor = editor;
