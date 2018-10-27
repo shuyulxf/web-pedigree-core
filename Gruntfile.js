@@ -9,6 +9,7 @@ module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('connect-livereload');
 
     var pkg = grunt.file.readJSON('package.json');
 
@@ -87,7 +88,7 @@ module.exports = function(grunt) {
                     footer: expose + '})();'
                 },
                 files: {
-	                'dist/kityminder.editor1.js': [
+	                'dist/kityminder.editor.js': [
 		                '.tmp/scripts/kityminder.editor.logic.js',
 		                '.tmp/scripts/kityminder.app.annotated.js',
 		                '.tmp/scripts/templates.annotated.js',
@@ -186,8 +187,15 @@ module.exports = function(grunt) {
 				    dest: '.tmp/scripts/'
 			    }]
 		    }
-	    }
-
+        },
+        watch: {
+            client: {
+                files: ['src/*', 'ui/*', 'less/*'], //需要监听的文件
+                options: {
+                  livereload: true
+                }
+            }
+        }
 
     });
 
