@@ -118,7 +118,7 @@ module.exports = function(grunt) {
                 options: {
                     sourceMap: true,
 	                sourceMapURL: 'kityminder.editor.css.map',
-                    sourceMapFilename: 'dist/kityminder.editor.css.map'
+                    sourceMapFilename: 'dist/client.editor.css.map'
                 },
                 files: [{
                     dest: 'dist/kityminder.editor.css',
