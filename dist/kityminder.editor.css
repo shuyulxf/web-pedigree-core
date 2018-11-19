@@ -1530,3 +1530,8 @@ div a.theme-item {
   cursor: grabbing;
 }
 /*# sourceMappingURL=kityminder.editor.css.map */
+
+g {
+  writing-mode: tb!important;
+  width: auto!important;
+}
