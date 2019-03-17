@@ -1,6 +1,6 @@
 /*!
  * ====================================================
- * kityminder-editor - v1.0.64 - 2018-10-29
+ * kityminder-editor - v1.0.64 - 2018-11-18
  * https://github.com/fex-team/kityminder-editor
  * GitHub: https://github.com/fex-team/kityminder-editor 
  * Copyright (c) 2018 ; Licensed 
